@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grey"
+    android:background="@color/white"
     tools:context="com.mz.cards.MainActivity">
 
     <LinearLayout
@@ -12,183 +12,244 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:paddingLeft="35dp"
+            android:paddingRight="25dp">
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignItems="center"
+                app:justifyContent="space_between">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:alignItems="center"
+                    app:justifyContent="space_between">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="Lato"
+                            android:text="A"
+                            android:textColor="@color/black"
+                            app:font_variant="Bold" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-6dp"
+                            android:fontFamily="Lato"
+                            android:text="Z"
+                            android:textColor="@color/black"
+                            app:font_variant="Bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:src="@drawable/arrow_down" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/notification_icon" />
+
+                    <RelativeLayout
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:gravity="center">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@color/yellow"></de.hdodenhof.circleimageview.CircleImageView>
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginTop="-0.5dp"
+                            android:fontFamily="Lato"
+                            android:shadowColor="@color/orange"
+                            android:shadowDx="0"
+                            android:shadowDy="3"
+                            android:shadowRadius="6"
+                            android:text="3"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="10dp"
+                            app:font_variant="Bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+        </android.support.v7.widget.Toolbar>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <View
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".08" />
+                android:layout_weight=".1"></LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight=".8"
                 android:orientation="vertical">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-
-                </LinearLayout>
-
-                <LinearLayout
+                <com.google.android.flexbox.FlexboxLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1.5"
-                    android:orientation="vertical">
+                    app:alignItems="center"
+                    app:flexDirection="row"
+                    app:justifyContent="space_between">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="top"
-                        android:orientation="horizontal">
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:flexDirection="column"
+                        app:justifyContent="space_between">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@color/blue" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"></LinearLayout>
 
                         <in.workarounds.typography.AppCompatTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/all"
                             android:textAllCaps="true"
-                            android:textColor="@color/lightGrey"
+                            android:textColor="@color/textLightGrey"
                             android:textSize="11sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Light" />
+                            app:font_name="Lato"
+                            app:font_variant="Bold" />
+                    </com.google.android.flexbox.FlexboxLayout>
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height=".5dp"
-                            android:layout_weight="1"
-                            android:background="@color/transparent" />
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:flexDirection="column"
+                        app:justifyContent="space_between">
 
-                        <in.workarounds.typography.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/colleagues"
-                            android:textAllCaps="true"
-                            android:textColor="@color/blue"
-                            android:textSize="11sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Light" />
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@color/green" />
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height=".5dp"
-                            android:layout_weight="0.8"
-                            android:background="@color/transparent" />
-
-                        <in.workarounds.typography.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/buyers"
-                            android:textAllCaps="true"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="11sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Light" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height=".5dp"
-                            android:layout_weight="0.8"
-                            android:background="@color/transparent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"></LinearLayout>
 
                         <in.workarounds.typography.AppCompatTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/friends"
                             android:textAllCaps="true"
-                            android:textColor="@color/lightGrey"
+                            android:textColor="@color/textLightGrey"
                             android:textSize="11sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Light" />
+                            app:font_name="Lato"
+                            app:font_variant="Bold" />
+                    </com.google.android.flexbox.FlexboxLayout>
 
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        app:flexDirection="column"
+                        app:justifyContent="space_between">
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:src="@color/blue" />
+                            android:src="@color/yellow" />
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height=".5dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@color/lineGrey" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"></LinearLayout>
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@color/blue" />
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/colleagues"
+                            android:textAllCaps="true"
+                            android:textColor="@color/textLightGrey"
+                            android:textSize="11sp"
+                            app:font_name="Lato"
+                            app:font_variant="Bold" />
+                    </com.google.android.flexbox.FlexboxLayout>
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height=".5dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@color/lineGrey" />
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@color/blue" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height=".5dp"
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:background="@color/lineGrey" />
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:flexDirection="column"
+                        app:justifyContent="space_between">
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:src="@color/blue" />
+                            android:src="@color/pink" />
 
-                    </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"></LinearLayout>
 
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.75" />
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buyers"
+                            android:textAllCaps="true"
+                            android:textColor="@color/textLightGrey"
+                            android:textSize="11sp"
+                            app:font_name="Lato"
+                            app:font_variant="Bold" />
+                    </com.google.android.flexbox.FlexboxLayout>
+                </com.google.android.flexbox.FlexboxLayout>
 
             </LinearLayout>
 
-            <View
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".08" />
+                android:layout_weight=".1"></LinearLayout>
+
 
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5">
+            android:layout_weight="5"
+            android:background="@color/white">
 
-            <com.mutualmobile.cardstack.CardStackLayout
-                xmlns:card_stack="http://schemas.android.com/apk/res-auto"
+            <com.mutualmobile.cardstack.CardStackLayout xmlns:card_stack="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/cards"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -199,178 +260,79 @@
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6" />
 
+            <!--<LinearLayout-->
+            <!--android:id="@+id/gradient"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_above="@id/cards"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="4" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1.5"-->
+            <!--android:background="@drawable/grey_gradient" />-->
+
+            <!--</LinearLayout>-->
             <LinearLayout
-                android:id="@+id/gradient"
-                android:layout_above="@id/cards"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="4" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:background="@drawable/grey_gradient" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/icons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/gradient"
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical">
+                android:background="@color/white"
+                android:elevation="7dp"
+                android:layout_alignParentBottom="true">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight=".1"></LinearLayout>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".1" />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-                        
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.3" />
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/icons"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:flexDirection="row"
+                        app:justifyContent="space_between">
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/scancard_icon" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/search_icon" />
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
 
                         <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/avatar_icon" />
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight=".1" />
-                        
-                    </LinearLayout>
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".1" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/settings_icon" />
 
+                    </com.google.android.flexbox.FlexboxLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".1" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:paddingBottom="@dimen/activity_vertical_margin">
-
-                        <in.workarounds.typography.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/scan_cards"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="12sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Regular" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
-
-                        <in.workarounds.typography.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/add_search"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="12sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Regular" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
-
-                        <in.workarounds.typography.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/my_profile"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="12sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Regular" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
-
-                        <in.workarounds.typography.AppCompatTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/settings"
-                            android:textColor="@color/lightGrey"
-                            android:textSize="12sp"
-                            app:font_name="Raleway"
-                            app:font_variant="Regular" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight=".1" />
-
-                </LinearLayout>
-
+                    android:layout_weight=".1"></LinearLayout>
             </LinearLayout>
-
 
         </RelativeLayout>
 
