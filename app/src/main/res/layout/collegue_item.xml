@@ -31,6 +31,7 @@
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileIcon"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:src="@color/blue" />
@@ -41,6 +42,7 @@
                     android:layout_weight="0.25" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/companyIcon"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@color/blue" />
@@ -199,6 +201,7 @@
             </LinearLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/identifier"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="10dp"
