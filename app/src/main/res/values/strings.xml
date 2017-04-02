@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Cards</string>
+    <string name="all">all</string>
+    <string name="colleagues">colleagues</string>
+    <string name="buyers">buyers</string>
+    <string name="friends">friends</string>
+    <string name="scan_cards">Scan Cards</string>
+    <string name="add_search">Add/Search</string>
+    <string name="my_profile">My Profile</string>
+    <string name="settings">Settings</string>
+    <string name="temporary_number">Temporary Number</string>
+    <string name="notes">Notes :</string>
+    <string name="enter_number_here">Enter Number Here</string>
+    <string name="enter_notes_here">Enter Notes Here</string>
+</resources>

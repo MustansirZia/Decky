@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context="com.mz.cards.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".08" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="top"
+                        android:orientation="horizontal">
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/all"
+                            android:textAllCaps="true"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="11sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Light" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height=".5dp"
+                            android:layout_weight="1"
+                            android:background="@color/transparent" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/colleagues"
+                            android:textAllCaps="true"
+                            android:textColor="@color/blue"
+                            android:textSize="11sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Light" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height=".5dp"
+                            android:layout_weight="0.8"
+                            android:background="@color/transparent" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/buyers"
+                            android:textAllCaps="true"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="11sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Light" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height=".5dp"
+                            android:layout_weight="0.8"
+                            android:background="@color/transparent" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/friends"
+                            android:textAllCaps="true"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="11sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Light" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@color/blue" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height=".5dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/lineGrey" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@color/blue" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height=".5dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/lineGrey" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@color/blue" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height=".5dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@color/lineGrey" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@color/blue" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.75" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".08" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5">
+
+            <com.mutualmobile.cardstack.CardStackLayout
+                xmlns:card_stack="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="15dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                card_stack:card_gap="85dp"
+                card_stack:parallax_enabled="true"
+                card_stack:parallax_scale="-6" />
+
+            <LinearLayout
+                android:id="@+id/gradient"
+                android:layout_above="@id/cards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/grey_gradient" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/icons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/gradient"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+                        
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.3" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_youtube_searched_for_white_24px"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".1" />
+                        
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/activity_vertical_margin">
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/scan_cards"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="12sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Regular" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/add_search"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="12sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Regular" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_profile"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="12sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Regular" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <in.workarounds.typography.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings"
+                            android:textColor="@color/lightGrey"
+                            android:textSize="12sp"
+                            app:font_name="Raleway"
+                            app:font_variant="Regular" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
