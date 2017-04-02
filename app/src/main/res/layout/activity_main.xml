@@ -27,6 +27,7 @@
                 app:justifyContent="space_between">
 
                 <com.google.android.flexbox.FlexboxLayout
+                    android:onClick="onSortPersons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:alignItems="center"
@@ -56,6 +57,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/arrow"
                         android:layout_width="12dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
@@ -129,6 +131,8 @@
                     app:justifyContent="space_between">
 
                     <com.google.android.flexbox.FlexboxLayout
+                        android:onClick="onCategoryChoose"
+                        android:tag="ALL"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:flexDirection="column"
@@ -144,17 +148,20 @@
                             android:layout_height="12dp"></LinearLayout>
 
                         <in.workarounds.typography.AppCompatTextView
+                            android:id="@+id/allText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/all"
                             android:textAllCaps="true"
-                            android:textColor="@color/textLightGrey"
+                            android:textColor="@color/darkGrey"
                             android:textSize="11sp"
                             app:font_name="Lato"
                             app:font_variant="Bold" />
                     </com.google.android.flexbox.FlexboxLayout>
 
                     <com.google.android.flexbox.FlexboxLayout
+                        android:onClick="onCategoryChoose"
+                        android:tag="FRIENDS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:flexDirection="column"
@@ -170,6 +177,7 @@
                             android:layout_height="12dp"></LinearLayout>
 
                         <in.workarounds.typography.AppCompatTextView
+                            android:id="@+id/friendsText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/friends"
@@ -181,6 +189,8 @@
                     </com.google.android.flexbox.FlexboxLayout>
 
                     <com.google.android.flexbox.FlexboxLayout
+                        android:onClick="onCategoryChoose"
+                        android:tag="COLLEAGUES"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:flexDirection="column"
@@ -196,6 +206,7 @@
                             android:layout_height="12dp"></LinearLayout>
 
                         <in.workarounds.typography.AppCompatTextView
+                            android:id="@+id/colleaguesText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/colleagues"
@@ -207,6 +218,8 @@
                     </com.google.android.flexbox.FlexboxLayout>
 
                     <com.google.android.flexbox.FlexboxLayout
+                        android:onClick="onCategoryChoose"
+                        android:tag="BUYERS"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:flexDirection="column"
@@ -222,6 +235,7 @@
                             android:layout_height="12dp"></LinearLayout>
 
                         <in.workarounds.typography.AppCompatTextView
+                            android:id="@+id/buyersText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/buyers"
