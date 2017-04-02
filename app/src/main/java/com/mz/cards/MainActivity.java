@@ -55,17 +55,13 @@ public class MainActivity extends AppCompatActivity {
         personList.add(new Person(4, "Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.FRIEND));
         personList.add(new Person(5, "Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.FRIEND));
         personList.add(new Person(6, "John D. Doe", "Ericsson", "Chief Engineer", PersonType.BUYER));
-        personList.add(new Person(7, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
-        personList.add(new Person(8, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
         personList.add(new Person(9, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.FRIEND));
-        personList.add(new Person(10, "Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.COLLEAGUE));
+        personList.add(new Person(10, "Tim A. Cook", "Apple Inc", "CEO", PersonType.COLLEAGUE));
         personList.add(new Person(11, "Agatha Christie", "Harper Collins", "Writer", PersonType.BUYER));
         personList.add(new Person(12, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
         personList.add(new Person(13, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
-        personList.add(new Person(14, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
         personList.add(new Person(15, "Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
         personList.add(new Person(16, "Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person(18, "Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.BUYER));
         personList.add(new Person(19, "Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
         personList.add(new Person(17, "Salfi Farooq", "GraphicWeave", "Senior Mobile Developer", PersonType.FRIEND));
         personList.add(new Person(20, "Mudasir Ashraf", "GraphicWeave", "Senior Backend Developer", PersonType.FRIEND));
@@ -110,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
     public void onSortPersons(View v) {
         progressDialog.show();
         if (sortOrder) {
-            Collections.sort(personList);
+            Collections.sort(cardsAdapter.getPersons());
             sortArrow.setRotationX(0);
         } else {
-            Collections.sort(personList, new Comparator<Person>() {
+            Collections.sort(cardsAdapter.getPersons(), new Comparator<Person>() {
                 @Override
                 public int compare(Person o1, Person o2) {
                     return o2.getName().compareTo(o1.getName());
