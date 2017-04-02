@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:cardCornerRadius="6dp"
-    app:cardElevation="8dp"
+    app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -31,8 +31,8 @@
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:src="@color/blue" />
 
                 <View
