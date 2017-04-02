@@ -49,27 +49,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadColleagues() {
-        personList.add(new Person("Wallace J. Alexander", "Apple Inc", "Quality Assurance", PersonType.COLLEAGUE));
-        personList.add(new Person("Timothy J. Foley", "Clemens Markets", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person("Angela K. Sands", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
-        personList.add(new Person("Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.FRIEND));
-        personList.add(new Person("Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.FRIEND));
-        personList.add(new Person("John D. Doe", "Ericsson", "Chief Engineer", PersonType.BUYER));
-        personList.add(new Person("Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
-        personList.add(new Person("Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
-        personList.add(new Person("Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.FRIEND));
-        personList.add(new Person("Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.COLLEAGUE));
-        personList.add(new Person("Agatha Christie", "Harper Collins", "Writer", PersonType.BUYER));
-        personList.add(new Person("Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
-        personList.add(new Person("Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
-        personList.add(new Person("Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
-        personList.add(new Person("Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
-        personList.add(new Person("Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person("Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
-        personList.add(new Person("Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.BUYER));
-        personList.add(new Person("Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
-        personList.add(new Person("Mudasir Ashraf", "GraphicWeave", "Senior Backend Developer", PersonType.FRIEND));
-        personList.add(new Person("Mustansir Zia", "GraphicWeave", "Software Intern", PersonType.FRIEND));
+        personList.add(new Person(1, "Wallace J. Alexander", "Apple Inc", "Quality Assurance", PersonType.COLLEAGUE));
+        personList.add(new Person(2, "Timothy J. Foley", "Clemens Markets", "Vice President", PersonType.COLLEAGUE));
+        personList.add(new Person(3, "Angela K. Sands", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
+        personList.add(new Person(4, "Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.FRIEND));
+        personList.add(new Person(5, "Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.FRIEND));
+        personList.add(new Person(6, "John D. Doe", "Ericsson", "Chief Engineer", PersonType.BUYER));
+        personList.add(new Person(7, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
+        personList.add(new Person(8, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
+        personList.add(new Person(9, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.FRIEND));
+        personList.add(new Person(10, "Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.COLLEAGUE));
+        personList.add(new Person(11, "Agatha Christie", "Harper Collins", "Writer", PersonType.BUYER));
+        personList.add(new Person(12, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
+        personList.add(new Person(13, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
+        personList.add(new Person(14, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
+        personList.add(new Person(15, "Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
+        personList.add(new Person(16, "Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
+        personList.add(new Person(17, "Salfi Farooq", "GraphicWeave", "Senior Mobile Developer", PersonType.FRIEND));
+        personList.add(new Person(18, "Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.BUYER));
+        personList.add(new Person(19, "Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
+        personList.add(new Person(20, "Mudasir Ashraf", "GraphicWeave", "Senior Backend Developer", PersonType.FRIEND));
+        personList.add(new Person(21, "Mustansir Zia", "GraphicWeave", "Software Intern", PersonType.FRIEND));
         Collections.sort(personList);
     }
 

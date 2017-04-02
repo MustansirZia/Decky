@@ -5,6 +5,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mutualmobile.cardstack.CardStackAdapter;
@@ -50,6 +51,34 @@ class CardsAdapter extends CardStackAdapter {
                 break;
             case BUYER:
                 circle.setImageResource(R.color.pink);
+                break;
+        }
+        ImageView profileIcon = (ImageView) view.findViewById(R.id.profileIcon);
+        ImageView companyIcon = (ImageView) view.findViewById(R.id.companyIcon);
+        switch (persons.get(position).getId() % 6) {
+            case 0:
+                profileIcon.setImageResource(R.drawable.a_123);
+                companyIcon.setImageResource(R.drawable.dell);
+                break;
+            case 1:
+                profileIcon.setImageResource(R.drawable.b_128);
+                companyIcon.setImageResource(R.drawable.bg);
+                break;
+            case 2:
+                profileIcon.setImageResource(R.drawable.c_127);
+                companyIcon.setImageResource(R.drawable.star);
+                break;
+            case 3:
+                profileIcon.setImageResource(R.drawable.e_126);
+                companyIcon.setImageResource(R.drawable.twitter_new);
+                break;
+            case 4:
+                profileIcon.setImageResource(R.drawable.f_125);
+                companyIcon.setImageResource(R.drawable.lego);
+                break;
+            case 5:
+                profileIcon.setImageResource(R.drawable.g_124);
+                companyIcon.setImageResource(R.drawable.target);
                 break;
         }
         return view;

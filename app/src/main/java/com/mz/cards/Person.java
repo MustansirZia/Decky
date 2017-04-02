@@ -8,14 +8,24 @@ import android.support.annotation.NonNull;
 
 public class Person implements Comparable<Person> {
 
+    private int id;
     private String name, company, position;
     private PersonType type;
 
-    public Person(String name, String company, String position, PersonType type) {
+    public Person(int id, String name, String company, String position, PersonType type) {
+        this.id = id;
         this.name = name;
         this.company = company;
         this.position = position;
         this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -53,7 +63,8 @@ public class Person implements Comparable<Person> {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", type=" + type +
