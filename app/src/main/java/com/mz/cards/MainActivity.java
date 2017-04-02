@@ -23,12 +23,12 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private List<Person> personList = new ArrayList<>();
+    private List<TextView> headerTexts = new ArrayList<>();
     private CardsAdapter cardsAdapter;
     private CardStackLayout cards;
-    private boolean sortOrder = false;
-    private List<TextView> headerTexts = new ArrayList<>();
     private ProgressDialog progressDialog;
     private ImageView sortArrow;
+    private boolean sortOrder = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
