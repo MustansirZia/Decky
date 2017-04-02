@@ -135,8 +135,8 @@
                         app:justifyContent="space_between">
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
                             android:src="@color/blue" />
 
                         <LinearLayout
@@ -161,8 +161,8 @@
                         app:justifyContent="space_between">
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
                             android:src="@color/green" />
 
                         <LinearLayout
@@ -187,8 +187,8 @@
                         app:justifyContent="space_between">
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
                             android:src="@color/yellow" />
 
                         <LinearLayout
@@ -213,8 +213,8 @@
                         app:justifyContent="space_between">
 
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
                             android:src="@color/pink" />
 
                         <LinearLayout
@@ -254,8 +254,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="15dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
                 card_stack:card_gap="85dp"
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6" />
