@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
         personList.add(new Person(14, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
         personList.add(new Person(15, "Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
         personList.add(new Person(16, "Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person(17, "Salfi Farooq", "GraphicWeave", "Senior Mobile Developer", PersonType.FRIEND));
         personList.add(new Person(18, "Tim A. Cook", "Apple Inc", "Chief Designer", PersonType.BUYER));
         personList.add(new Person(19, "Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
+        personList.add(new Person(17, "Salfi Farooq", "GraphicWeave", "Senior Mobile Developer", PersonType.FRIEND));
         personList.add(new Person(20, "Mudasir Ashraf", "GraphicWeave", "Senior Backend Developer", PersonType.FRIEND));
         personList.add(new Person(21, "Mustansir Zia", "GraphicWeave", "Software Intern", PersonType.FRIEND));
         Collections.sort(personList);
@@ -130,6 +130,9 @@ public class MainActivity extends AppCompatActivity {
         cards.setShowInitAnimation(false);
         cards.removeAdapter();
         cards.setAdapter(cardsAdapter);
+        if (cards.isCardSelected()) {
+            cards.restoreCards();
+        }
     }
 
     private void activateCategory(int categoryID) {
