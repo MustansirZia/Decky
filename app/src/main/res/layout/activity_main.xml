@@ -130,6 +130,24 @@
 
                     <com.google.android.flexbox.FlexboxLayout
                         android:layout_width="match_parent"
+                        android:layout_marginTop="36.5dp"
+                        android:layout_height="wrap_content"
+                        app:justifyContent="center">
+
+                        <com.google.android.flexbox.FlexboxLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_flexBasisPercent="90%">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#1145BEFF" />
+                        </com.google.android.flexbox.FlexboxLayout>
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:alignItems="center"
                         app:flexDirection="row"
@@ -181,7 +199,6 @@
                             android:onClick="onCategoryChoose"
                             android:tag="FRIENDS"
                             app:alignItems="center"
-
                             app:flexDirection="column"
                             app:justifyContent="space_between">
 
@@ -262,11 +279,6 @@
                         </com.google.android.flexbox.FlexboxLayout>
                     </com.google.android.flexbox.FlexboxLayout>
 
-                    <!--<ImageView-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="1dp"-->
-                        <!--android:layout_marginTop="32dp"-->
-                        <!--android:background="@color/lightGrey" />-->
                 </RelativeLayout>
 
             </LinearLayout>
@@ -275,23 +287,19 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight=".1"></LinearLayout>
-
-
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
-            android:background="@color/white">
+            android:layout_weight="5">
 
             <com.mutualmobile.cardstack.CardStackLayout xmlns:card_stack="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/cards"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="15dp"
-                android:paddingLeft="0dp"
-                android:paddingRight="0dp"
+                android:paddingTop="10dp"
                 card_stack:card_gap="85dp"
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6" />
