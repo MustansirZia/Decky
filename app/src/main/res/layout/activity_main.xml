@@ -303,6 +303,7 @@
                 android:id="@+id/cards"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="15dp"
                 card_stack:card_gap="85dp"
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6"
