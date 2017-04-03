@@ -11,6 +11,7 @@
     <color name="grey">#2A2C30</color>
     <color name="lineGrey">#666666</color>
     <color name="textLightGrey">#D8D8D8</color>
+    <color name="textRegularGrey">#BCBCBC</color>
     <color name="darkGrey">#313540</color>
     <color name="transparent">#00000000</color>
     <color name="lightGrey">#F2F2F2</color>

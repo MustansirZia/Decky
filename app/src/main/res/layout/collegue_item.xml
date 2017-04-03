@@ -4,216 +4,149 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="4dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="1dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
 
-        <RelativeLayout
+
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:paddingStart="18dp">
-
-
-            <LinearLayout
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                app:alignItems="center"
+                app:justifyContent="center"
+                app:layout_flexBasisPercent="18%">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/profileIcon"
-                    android:layout_width="55dp"
+                    android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:src="@color/blue" />
+            </com.google.android.flexbox.FlexboxLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.25" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/companyIcon"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@color/blue" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.07" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="22dp"
+                app:alignItems="flex_start"
+                app:flexDirection="column"
+                app:justifyContent="center"
+                app:layout_flexBasisPercent="80%">
 
                 <in.workarounds.typography.AppCompatTextView
                     android:id="@+id/colleagueName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:textSize="18sp"
-                    app:font_name="Raleway"
-                    app:font_variant="SemiBold" />
+                    android:textSize="15sp"
+                    app:font_name="Lato"
+                    app:font_variant="Bold" />
 
                 <in.workarounds.typography.AppCompatTextView
                     android:id="@+id/companyName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textAllCaps="true"
-                    android:textColor="@color/blue"
-                    android:textSize="15sp"
-                    app:font_name="Raleway"
-                    app:font_variant="Light" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.05" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/lineGrey" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.4"
-                    android:orientation="vertical">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <in.workarounds.typography.AppCompatTextView
-                        android:id="@+id/position"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/blue"
-                        android:textSize="15sp"
-                        app:font_name="Raleway"
-                        app:font_variant="Light" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/lineGrey" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-
-                    <in.workarounds.typography.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="#000000"
-                        android:text="@string/temporary_number"
-                        android:textSize="15sp"
-                        app:font_name="Raleway"
-                        app:font_variant="Light" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.2" />
-
-                    <in.workarounds.typography.AppCompatEditText
-                        android:hint="@string/enter_number_here"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableBottom="#000000"
-                        android:gravity="start"
-                        android:textAlignment="textStart"
-                        app:font_name="Raleway"
-                        app:font_variant="Light"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.1" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0.5dp"
-                        android:background="@color/lineGrey" />
-
-                    <in.workarounds.typography.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="#000000"
-                        android:text="@string/notes"
-                        android:textSize="15sp"
-                        app:font_name="Raleway"
-                        app:font_variant="Light" />
-
-                    <in.workarounds.typography.AppCompatEditText
-                        android:layout_marginTop="10dp"
-                        android:hint="@string/enter_notes_here"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:drawableBottom="#000000"
-                        android:gravity="start"
-                        android:textAlignment="textStart"
-                        android:layout_weight="0.3"
-                        app:font_name="Raleway"
-                        app:font_variant="Light"/>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/textRegularGrey"
+                    android:textSize="12sp"
+                    app:font_name="Lato"
+                    app:font_variant="Regular" />
+            </com.google.android.flexbox.FlexboxLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/identifier"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="10dp"
-                android:src="@color/blue"/>
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="-40dp"
+                android:src="@drawable/blue_ellipse" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <View
+            android:layout_marginTop="13dp"
+            android:layout_width="match_parent"
+            android:layout_height=".5dp"
+            android:background="@color/lightGrey"></View>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/companyIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <in.workarounds.typography.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/temporary_number"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:font_name="Raleway"
+                app:font_variant="Light" />
+
+
+            <in.workarounds.typography.AppCompatTextView
+                android:id="@+id/position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/blue"
+                android:textSize="15sp"
+                app:font_name="Raleway"
+                app:font_variant="Light" />
+
+
+            <in.workarounds.typography.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableBottom="#000000"
+                android:gravity="start"
+                android:hint="@string/enter_number_here"
+                android:textAlignment="textStart"
+                app:font_name="Raleway"
+                app:font_variant="Light" />
+
+
+            <in.workarounds.typography.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/notes"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:font_name="Raleway"
+                app:font_variant="Light" />
+
+            <in.workarounds.typography.AppCompatEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.3"
+                android:drawableBottom="#000000"
+                android:gravity="start"
+                android:hint="@string/enter_notes_here"
+                android:textAlignment="textStart"
+                app:font_name="Raleway"
+                app:font_variant="Light" />
 
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp10" />
-
     </LinearLayout>
-
 </android.support.v7.widget.CardView>

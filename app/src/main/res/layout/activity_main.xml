@@ -14,9 +14,10 @@
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:elevation="4dp"
+            android:minHeight="?attr/actionBarSize"
             android:paddingLeft="35dp"
             android:paddingRight="25dp">
 
@@ -27,9 +28,10 @@
                 app:justifyContent="space_between">
 
                 <com.google.android.flexbox.FlexboxLayout
-                    android:onClick="onSortPersons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:onClick="onSortPersons"
                     app:alignItems="center"
                     app:justifyContent="space_between">
 
@@ -122,130 +124,150 @@
                 android:layout_weight=".8"
                 android:orientation="vertical">
 
-                <com.google.android.flexbox.FlexboxLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    app:alignItems="center"
-                    app:flexDirection="row"
-                    app:justifyContent="space_between">
+                    android:layout_height="match_parent">
 
                     <com.google.android.flexbox.FlexboxLayout
-                        android:onClick="onCategoryChoose"
-                        android:tag="ALL"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:flexDirection="column"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:alignItems="center"
+                        app:flexDirection="row"
                         app:justifyContent="space_between">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@color/blue" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="12dp"></LinearLayout>
-
-                        <in.workarounds.typography.AppCompatTextView
-                            android:id="@+id/allText"
+                        <com.google.android.flexbox.FlexboxLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/all"
-                            android:textAllCaps="true"
-                            android:textColor="@color/darkGrey"
-                            android:textSize="11sp"
-                            app:font_name="Lato"
-                            app:font_variant="Bold" />
-                    </com.google.android.flexbox.FlexboxLayout>
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:onClick="onCategoryChoose"
+                            android:tag="ALL"
+                            app:alignItems="center"
+                            app:flexDirection="column"
+                            app:justifyContent="space_between">
 
-                    <com.google.android.flexbox.FlexboxLayout
-                        android:onClick="onCategoryChoose"
-                        android:tag="FRIENDS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:flexDirection="column"
-                        app:justifyContent="space_between">
+                            <RelativeLayout
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:gravity="center">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@color/green" />
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/blue_ellipse_active" />
+                                <!--<ImageView-->
+                                <!--android:scaleType="centerCrop"-->
+                                <!--android:layout_width="30dp"-->
+                                <!--android:layout_centerInParent="true"-->
+                                <!--android:src="@drawable/ic_ellipse_border"-->
+                                <!--android:layout_height="30dp" />-->
+                            </RelativeLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="12dp"></LinearLayout>
+                            <in.workarounds.typography.AppCompatTextView
+                                android:id="@+id/allText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/all"
+                                android:textAllCaps="true"
+                                android:textColor="@color/darkGrey"
+                                android:textSize="11sp"
+                                app:font_name="Lato"
+                                app:font_variant="Bold" />
+                        </com.google.android.flexbox.FlexboxLayout>
 
-                        <in.workarounds.typography.AppCompatTextView
-                            android:id="@+id/friendsText"
+                        <com.google.android.flexbox.FlexboxLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/friends"
-                            android:textAllCaps="true"
-                            android:textColor="@color/textLightGrey"
-                            android:textSize="11sp"
-                            app:font_name="Lato"
-                            app:font_variant="Bold" />
-                    </com.google.android.flexbox.FlexboxLayout>
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:onClick="onCategoryChoose"
+                            android:tag="FRIENDS"
+                            app:alignItems="center"
 
-                    <com.google.android.flexbox.FlexboxLayout
-                        android:onClick="onCategoryChoose"
-                        android:tag="COLLEAGUES"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:flexDirection="column"
-                        app:justifyContent="space_between">
+                            app:flexDirection="column"
+                            app:justifyContent="space_between">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@color/yellow" />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/green_ellipse_active" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="12dp"></LinearLayout>
+                            <in.workarounds.typography.AppCompatTextView
+                                android:id="@+id/friendsText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/friends"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textLightGrey"
+                                android:textSize="11sp"
+                                app:font_name="Lato"
+                                app:font_variant="Bold" />
+                        </com.google.android.flexbox.FlexboxLayout>
 
-                        <in.workarounds.typography.AppCompatTextView
-                            android:id="@+id/colleaguesText"
+                        <com.google.android.flexbox.FlexboxLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/colleagues"
-                            android:textAllCaps="true"
-                            android:textColor="@color/textLightGrey"
-                            android:textSize="11sp"
-                            app:font_name="Lato"
-                            app:font_variant="Bold" />
-                    </com.google.android.flexbox.FlexboxLayout>
+                            android:background="?selectableItemBackgroundBorderless"
 
-                    <com.google.android.flexbox.FlexboxLayout
-                        android:onClick="onCategoryChoose"
-                        android:tag="BUYERS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:flexDirection="column"
-                        app:justifyContent="space_between">
+                            android:onClick="onCategoryChoose"
+                            android:tag="COLLEAGUES"
+                            app:alignItems="center"
+                            app:flexDirection="column"
+                            app:justifyContent="space_between">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@color/pink" />
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/yellow_ellipse_active" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="12dp"></LinearLayout>
+                            <in.workarounds.typography.AppCompatTextView
+                                android:id="@+id/colleaguesText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/colleagues"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textLightGrey"
+                                android:textSize="11sp"
+                                app:font_name="Lato"
+                                app:font_variant="Bold" />
+                        </com.google.android.flexbox.FlexboxLayout>
 
-                        <in.workarounds.typography.AppCompatTextView
-                            android:id="@+id/buyersText"
+                        <com.google.android.flexbox.FlexboxLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/buyers"
-                            android:textAllCaps="true"
-                            android:textColor="@color/textLightGrey"
-                            android:textSize="11sp"
-                            app:font_name="Lato"
-                            app:font_variant="Bold" />
+                            android:background="?selectableItemBackgroundBorderless"
+                            android:onClick="onCategoryChoose"
+                            android:tag="BUYERS"
+
+                            app:alignItems="center"
+                            app:flexDirection="column"
+                            app:justifyContent="space_between">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/pink_ellipse_active" />
+
+                            <in.workarounds.typography.AppCompatTextView
+                                android:id="@+id/buyersText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/buyers"
+                                android:textAllCaps="true"
+                                android:textColor="@color/textLightGrey"
+                                android:textSize="11sp"
+                                app:font_name="Lato"
+                                app:font_variant="Bold" />
+                        </com.google.android.flexbox.FlexboxLayout>
                     </com.google.android.flexbox.FlexboxLayout>
-                </com.google.android.flexbox.FlexboxLayout>
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="1dp"-->
+                        <!--android:layout_marginTop="32dp"-->
+                        <!--android:background="@color/lightGrey" />-->
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -268,8 +290,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="15dp"
-                android:paddingLeft="6dp"
-                android:paddingRight="6dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
                 card_stack:card_gap="85dp"
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6" />
@@ -296,9 +318,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:background="@color/white"
-                android:elevation="7dp"
-                android:layout_alignParentBottom="true">
+                android:elevation="7dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
