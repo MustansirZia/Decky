@@ -18,7 +18,7 @@
             android:background="@color/white"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize"
-            android:paddingLeft="35dp"
+            android:paddingLeft="25dp"
             android:paddingRight="25dp">
 
             <com.google.android.flexbox.FlexboxLayout
@@ -32,6 +32,7 @@
                     android:layout_height="wrap_content"
                     android:background="?selectableItemBackgroundBorderless"
                     android:onClick="onSortPersons"
+                    android:paddingStart="10dp"
                     app:alignItems="center"
                     app:justifyContent="space_between">
 
@@ -169,6 +170,7 @@
                                 android:gravity="center">
 
                                 <ImageView
+                                    android:id="@+id/allImage"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:src="@drawable/blue_ellipse_active" />
@@ -203,10 +205,11 @@
                             app:justifyContent="space_between">
 
                             <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/friendsImage"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/green_ellipse_active" />
+                                android:src="@drawable/green_ellipse" />
 
                             <in.workarounds.typography.AppCompatTextView
                                 android:id="@+id/friendsText"
@@ -232,10 +235,11 @@
                             app:justifyContent="space_between">
 
                             <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/colleaguesImage"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/yellow_ellipse_active" />
+                                android:src="@drawable/yellow_ellipse" />
 
                             <in.workarounds.typography.AppCompatTextView
                                 android:id="@+id/colleaguesText"
@@ -261,10 +265,11 @@
                             app:justifyContent="space_between">
 
                             <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/buyersImage"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/pink_ellipse_active" />
+                                android:src="@drawable/pink_ellipse" />
 
                             <in.workarounds.typography.AppCompatTextView
                                 android:id="@+id/buyersText"
@@ -294,7 +299,8 @@
             android:layout_height="0dp"
             android:layout_weight="5">
 
-            <com.mutualmobile.cardstack.CardStackLayout xmlns:card_stack="http://schemas.android.com/apk/res-auto"
+            <com.mutualmobile.cardstack.CardStackLayout
+                xmlns:card_stack="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/cards"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -324,6 +330,7 @@
 
             <!--</LinearLayout>-->
             <LinearLayout
+                android:layout_above="@id/cards"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
