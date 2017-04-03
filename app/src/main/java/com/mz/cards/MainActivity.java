@@ -166,7 +166,12 @@ public class MainActivity extends AppCompatActivity {
                 ((ImageView) header.get("imageView")).setImageResource((Integer) header.get("activeImage"));
             } else {
                 ((TextView) header.get("textView")).setTextColor(ContextCompat.getColor(this, R.color.textLightGrey));
-                ((ImageView) header.get("imageView")).setImageResource((Integer) header.get("deActiveImage"));            }
+                ((ImageView) header.get("imageView")).setImageResource((Integer) header.get("deActiveImage"));
+            }
         }
+    }
+
+    public void dummy(View v) {
+        System.err.println("Yay!");
     }
 }
