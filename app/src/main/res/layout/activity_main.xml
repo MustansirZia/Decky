@@ -115,8 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".7"
-            android:paddingTop="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -264,7 +264,6 @@
                             android:background="?selectableItemBackgroundBorderless"
                             android:onClick="onCategoryChoose"
                             android:tag="BUYERS"
-
                             app:alignItems="center"
                             app:flexDirection="column"
                             app:justifyContent="space_between">
@@ -302,29 +301,28 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:paddingTop="10dp"
-            android:layout_weight="5">
+            android:layout_weight="5"
+            android:paddingTop="10dp">
 
             <com.mutualmobile.cardstack.CardStackLayout xmlns:card_stack="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/cards"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                card_stack:card_gap="85dp"
-                android:paddingTop="10dp"
                 android:background="@color/white"
+                android:paddingTop="10dp"
+                card_stack:card_gap="85dp"
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6"
                 card_stack:showInitAnimation="true" />
 
             <LinearLayout
-                android:layout_above="@id/cards"
-                android:onClick="dummy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/cards"
                 android:layout_alignParentBottom="true"
                 android:background="@color/white"
-                android:elevation="7dp">
+                android:elevation="7dp"
+                android:onClick="dummy">
 
                 <LinearLayout
                     android:layout_width="0dp"

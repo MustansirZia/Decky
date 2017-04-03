@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:cardCornerRadius="18dp"
-    app:cardPreventCornerOverlap="true"
-    app:cardElevation="8dp">
+    app:cardElevation="8dp"
+    app:cardPreventCornerOverlap="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -150,13 +150,12 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="top"
                 android:background="@drawable/edit_text_bg"
                 android:ems="30"
                 android:gravity="top"
                 android:hint="Enter notes here..."
-                android:inputType="textMultiLine"
                 android:padding="@dimen/activity_horizontal_margin"
                 android:textColorHint="#888888"
                 android:textSize="14sp" />
