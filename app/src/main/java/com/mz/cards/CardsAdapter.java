@@ -77,7 +77,7 @@ class CardsAdapter extends CardStackAdapter {
                 break;
             case 5:
                 profileIcon.setImageResource(R.drawable.g_124);
-                companyIcon.setImageResource(R.drawable.target);
+                companyIcon.setImageResource(R.drawable.br);
                 break;
         }
         return view;
