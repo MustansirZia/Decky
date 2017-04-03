@@ -1,29 +1,26 @@
 package com.mz.cards;
 
 import android.app.ProgressDialog;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.mutualmobile.cardstack.CardStackLayout;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
     private List<Person> personList = new ArrayList<>();
-    private List<TextView> headerTexts = new ArrayList<>();
+    private List<Map<String, Object>> headers = new ArrayList<>();
     private CardsAdapter cardsAdapter;
     private CardStackLayout cards;
     private ProgressDialog progressDialog;
@@ -38,10 +35,40 @@ public class MainActivity extends AppCompatActivity {
         cardsAdapter = new CardsAdapter(this, R.layout.collegue_item, personList);
         cards = (CardStackLayout) findViewById(R.id.cards);
         cards.setAdapter(cardsAdapter);
-        headerTexts.add(((TextView) findViewById(R.id.allText)));
-        headerTexts.add(((TextView) findViewById(R.id.friendsText)));
-        headerTexts.add(((TextView) findViewById(R.id.colleaguesText)));
-        headerTexts.add(((TextView) findViewById(R.id.buyersText)));
+
+        Map<String, Object> allMap = new HashMap<>();
+        allMap.put("id", "ALL");
+        allMap.put("textView", findViewById(R.id.allText));
+        allMap.put("imageView", findViewById(R.id.allImage));
+        allMap.put("deActiveImage", R.drawable.blue_ellipse);
+        allMap.put("activeImage", R.drawable.blue_ellipse_active);
+
+        Map<String, Object> friendsMap = new HashMap<>();
+        friendsMap.put("id", "FRIENDS");
+        friendsMap.put("textView", findViewById(R.id.friendsText));
+        friendsMap.put("imageView", findViewById(R.id.friendsImage));
+        friendsMap.put("deActiveImage", R.drawable.green_ellipse);
+        friendsMap.put("activeImage", R.drawable.green_ellipse_active);
+
+        Map<String, Object> colleaguesMap = new HashMap<>();
+        colleaguesMap.put("id", "COLLEAGUES");
+        colleaguesMap.put("textView", findViewById(R.id.colleaguesText));
+        colleaguesMap.put("imageView", findViewById(R.id.colleaguesImage));
+        colleaguesMap.put("deActiveImage", R.drawable.yellow_ellipse);
+        colleaguesMap.put("activeImage", R.drawable.yellow_ellipse_active);
+
+        Map<String, Object> buyersMap = new HashMap<>();
+        buyersMap.put("id", "BUYERS");
+        buyersMap.put("textView", findViewById(R.id.buyersText));
+        buyersMap.put("imageView", findViewById(R.id.buyersImage));
+        buyersMap.put("deActiveImage", R.drawable.pink_ellipse);
+        buyersMap.put("activeImage", R.drawable.pink_ellipse_active);
+
+        headers.add(allMap);
+        headers.add(friendsMap);
+        headers.add(colleaguesMap);
+        headers.add(buyersMap);
+
         sortArrow = (ImageView) findViewById(R.id.arrow);
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -74,22 +101,23 @@ public class MainActivity extends AppCompatActivity {
         switch (v.getTag().toString()) {
             case "ALL":
                 cardsAdapter.setPersons(personList);
-                activateCategory(R.id.allText);
+                activateCategory("ALL");
                 break;
             case "FRIENDS":
                 cardsAdapter.setPersons(filterPersons(PersonType.FRIEND));
-                activateCategory(R.id.friendsText);
+                activateCategory("FRIENDS");
                 break;
             case "COLLEAGUES":
                 cardsAdapter.setPersons(filterPersons(PersonType.COLLEAGUE));
-                activateCategory(R.id.colleaguesText);
+                activateCategory("COLLEAGUES");
                 break;
             case "BUYERS":
                 cardsAdapter.setPersons(filterPersons(PersonType.BUYER));
-                activateCategory(R.id.buyersText);
+                activateCategory("BUYERS");
                 break;
         }
         resetAdapter();
+        sortArrow.setRotationX(0);
         progressDialog.dismiss();
     }
 
@@ -131,13 +159,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void activateCategory(int categoryID) {
-        for (TextView category: headerTexts) {
-            if (category.getId() == categoryID) {
-                category.setTextColor(ContextCompat.getColor(this, R.color.darkGrey));
+    private void activateCategory(String category) {
+        for (Map header: headers) {
+            if (header.get("id").equals(category)) {
+                ((TextView) header.get("textView")).setTextColor(ContextCompat.getColor(this, R.color.darkGrey));
+                ((ImageView) header.get("imageView")).setImageResource((Integer) header.get("activeImage"));
             } else {
-                category.setTextColor(ContextCompat.getColor(this, R.color.textLightGrey));
-            }
+                ((TextView) header.get("textView")).setTextColor(ContextCompat.getColor(this, R.color.textLightGrey));
+                ((ImageView) header.get("imageView")).setImageResource((Integer) header.get("deActiveImage"));            }
         }
     }
 }
