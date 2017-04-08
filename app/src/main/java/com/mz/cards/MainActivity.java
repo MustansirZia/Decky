@@ -4,17 +4,12 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopeer.cardstack.AllMoveDownAnimatorAdapter;
 import com.loopeer.cardstack.CardStackView;
-import com.loopeer.cardstack.UpDownAnimatorAdapter;
 import com.loopeer.cardstack.UpDownStackAnimatorAdapter;
-import com.mutualmobile.cardstack.CardStackLayout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +20,8 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Person> personList = new ArrayList<>();
+    private List<Person> basicPersonList = new ArrayList<>();
+    private List<Person> filteredPersonList;
     private List<Map<String, Object>> headers = new ArrayList<>();
 //    private CardsAdapter cardsAdapter;
 //    private CardStackLayout cards;
@@ -44,13 +40,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadColleagues();
-//        cardsAdapter = new CardsAdapter(this, R.layout.collegue_item, personList);
+//        cardsAdapter = new CardsAdapter(this, R.layout.collegue_item, basicPersonList);
 //        cards = (CardStackLayout) findViewById(R.id.cards);
 //        cards.setAdapter(cardsAdapter);
 
         cardStackView = (CardStackView) findViewById(R.id.stackview_main);
         cardAdapter = new CardAdapter(this);
-        cardAdapter.setData(personList);
+        cardAdapter.setData(filteredPersonList);
         cardStackView.setAdapter(cardAdapter);
         cardStackView.setItemExpendListener(new CardStackView.ItemExpendListener() {
             @Override
@@ -101,29 +97,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadColleagues() {
-        personList.add(new Person(1, "Wallace J. Alexander", "Apple Inc", "Quality Assurance", PersonType.COLLEAGUE));
-        personList.add(new Person(2, "Timothy J. Foley", "Clemens Markets", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person(4, "Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.BUYER));
-        personList.add(new Person(5, "Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.BUYER));
-        personList.add(new Person(6, "John D. Doe", "Ericsson", "Chief Engineer", PersonType.COLLEAGUE));
-        personList.add(new Person(9, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.BUYER));
-        personList.add(new Person(10, "Tim A. Cook", "Apple Inc", "CEO", PersonType.COLLEAGUE));
-        personList.add(new Person(12, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
-//        personList.add(new Person(13, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
-        personList.add(new Person(15, "Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
-        personList.add(new Person(16, "Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person(19, "Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
-        personList.add(new Person(17, "Salfi Farooq", "GraphicWeave", "Senior Mobile Developer", PersonType.FRIEND));
-        personList.add(new Person(20, "Mudasir Ashraf", "GraphicWeave", "Senior Backend Developer", PersonType.FRIEND));
-        personList.add(new Person(21, "Mustansir Zia", "GraphicWeave", "Software Intern", PersonType.FRIEND));
-        Collections.sort(personList);
+        basicPersonList.add(new Person(1, "Wallace J. Alexander", "Apple Inc", "Quality Assurance", PersonType.COLLEAGUE));
+        basicPersonList.add(new Person(2, "Timothy J. Foley", "Clemens Markets", "Vice President", PersonType.COLLEAGUE));
+        basicPersonList.add(new Person(4, "Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.BUYER));
+        basicPersonList.add(new Person(5, "Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.BUYER));
+        basicPersonList.add(new Person(6, "John D. Doe", "Ericsson", "Chief Engineer", PersonType.COLLEAGUE));
+        basicPersonList.add(new Person(9, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.BUYER));
+        basicPersonList.add(new Person(10, "Tim A. Cook", "Apple Inc", "CEO", PersonType.COLLEAGUE));
+        basicPersonList.add(new Person(12, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
+//        basicPersonList.add(new Person(13, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
+        basicPersonList.add(new Person(15, "Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
+        basicPersonList.add(new Person(16, "Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
+        basicPersonList.add(new Person(19, "Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
+        basicPersonList.add(new Person(17, "Salfi Farooq", "GraphicWeave", "Senior Mobile Developer", PersonType.FRIEND));
+        basicPersonList.add(new Person(20, "Mudasir Ashraf", "GraphicWeave", "Senior Backend Developer", PersonType.FRIEND));
+        basicPersonList.add(new Person(21, "Mustansir Zia", "GraphicWeave", "Software Intern", PersonType.FRIEND));
+        Collections.sort(basicPersonList);
+        filteredPersonList = basicPersonList;
     }
 
     public void onCategoryChoose(View v) {
         progressDialog.show();
         switch (v.getTag().toString()) {
             case "ALL":
-                cardAdapter.updateData(personList);
+                cardAdapter.updateData(basicPersonList);
                 activateCategory("ALL");
                 break;
             case "FRIENDS":
@@ -139,29 +136,32 @@ public class MainActivity extends AppCompatActivity {
                 activateCategory("BUYERS");
                 break;
         }
-        cardStackView.setSelectPosition(-1);
-//        resetAdapter();
-//        sortArrow.setRotationX(0);
+        resetAdapter();
+        if (sortOrder) {
+            sortArrow.setRotationX(0);
+            sortOrder = !sortOrder;
+        }
         progressDialog.dismiss();
     }
 
     private List<Person> filterPersons(PersonType withType) {
         List<Person> persons = new ArrayList<>();
-        for (Person person: personList) {
+        for (Person person: basicPersonList) {
             if (person.getType() == withType) {
                 persons.add(person);
             }
         }
+        filteredPersonList = persons;
         return persons;
     }
 
     public void onSortPersons(View v) {
         progressDialog.show();
         if (sortOrder) {
-            Collections.sort(personList);
+            Collections.sort(filteredPersonList);
             sortArrow.setRotationX(0);
         } else {
-            Collections.sort(personList, new Comparator<Person>() {
+            Collections.sort(filteredPersonList, new Comparator<Person>() {
                 @Override
                 public int compare(Person o1, Person o2) {
                     return o2.getName().compareTo(o1.getName());
@@ -170,19 +170,21 @@ public class MainActivity extends AppCompatActivity {
             sortArrow.setRotationX(180f);
         }
         sortOrder = !sortOrder;
-        cardAdapter.updateData(personList);
-//        resetAdapter();
+        cardAdapter.updateData(filteredPersonList);
+        resetAdapter();
         progressDialog.dismiss();
     }
 
-//    private void resetAdapter() {
+    private void resetAdapter() {
+        cardStackView.setSelectPosition(-1);
+        cardStackView.setScrollEnable(true);
 //        cards.setShowInitAnimation(false);
 //        cards.removeAdapter();
 //        cards.setAdapter(cardsAdapter);
 //        if (cards.isCardSelected()) {
 //            cards.restoreCards();
 //        }
-//    }
+    }
 
     private void activateCategory(String category) {
         for (Map header: headers) {
