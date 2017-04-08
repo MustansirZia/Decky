@@ -4,10 +4,16 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.loopeer.cardstack.AllMoveDownAnimatorAdapter;
+import com.loopeer.cardstack.CardStackView;
+import com.loopeer.cardstack.UpDownAnimatorAdapter;
+import com.loopeer.cardstack.UpDownStackAnimatorAdapter;
 import com.mutualmobile.cardstack.CardStackLayout;
 
 import java.util.ArrayList;
@@ -21,20 +27,39 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Person> personList = new ArrayList<>();
     private List<Map<String, Object>> headers = new ArrayList<>();
-    private CardsAdapter cardsAdapter;
-    private CardStackLayout cards;
+//    private CardsAdapter cardsAdapter;
+//    private CardStackLayout cards;
+    private CardStackView cardStackView;
+    private CardAdapter cardAdapter;
+
     private ProgressDialog progressDialog;
     private ImageView sortArrow;
     private boolean sortOrder = false;
+
+
+    private List<Integer> colors = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadColleagues();
-        cardsAdapter = new CardsAdapter(this, R.layout.collegue_item, personList);
-        cards = (CardStackLayout) findViewById(R.id.cards);
-        cards.setAdapter(cardsAdapter);
+//        cardsAdapter = new CardsAdapter(this, R.layout.collegue_item, personList);
+//        cards = (CardStackLayout) findViewById(R.id.cards);
+//        cards.setAdapter(cardsAdapter);
+
+        cardStackView = (CardStackView) findViewById(R.id.stackview_main);
+        cardAdapter = new CardAdapter(this);
+        cardAdapter.setData(personList);
+        cardStackView.setAdapter(cardAdapter);
+        cardStackView.setItemExpendListener(new CardStackView.ItemExpendListener() {
+            @Override
+            public void onItemExpend(boolean expend) {
+
+            }
+        });
+        cardStackView.setAnimationType(CardStackView.UP_DOWN_STACK);
+        cardStackView.setAnimatorAdapter(new UpDownStackAnimatorAdapter(cardStackView));
 
         Map<String, Object> allMap = new HashMap<>();
         allMap.put("id", "ALL");
@@ -78,15 +103,13 @@ public class MainActivity extends AppCompatActivity {
     private void loadColleagues() {
         personList.add(new Person(1, "Wallace J. Alexander", "Apple Inc", "Quality Assurance", PersonType.COLLEAGUE));
         personList.add(new Person(2, "Timothy J. Foley", "Clemens Markets", "Vice President", PersonType.COLLEAGUE));
-        personList.add(new Person(3, "Angela K. Sands", "Block Distributors", "HR Lead", PersonType.COLLEAGUE));
-        personList.add(new Person(4, "Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.FRIEND));
-        personList.add(new Person(5, "Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.FRIEND));
-        personList.add(new Person(6, "John D. Doe", "Ericsson", "Chief Engineer", PersonType.BUYER));
-        personList.add(new Person(9, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.FRIEND));
+        personList.add(new Person(4, "Jenna V. Rivera", "Quest Technology Service", "UI/UX Designer", PersonType.BUYER));
+        personList.add(new Person(5, "Johnny A. Ive", "Apple Inc", "Chief Designer", PersonType.BUYER));
+        personList.add(new Person(6, "John D. Doe", "Ericsson", "Chief Engineer", PersonType.COLLEAGUE));
+        personList.add(new Person(9, "Gregory K. Helms", "Block Distributors", "HR Lead", PersonType.BUYER));
         personList.add(new Person(10, "Tim A. Cook", "Apple Inc", "CEO", PersonType.COLLEAGUE));
-        personList.add(new Person(11, "Agatha Christie", "Harper Collins", "Writer", PersonType.BUYER));
         personList.add(new Person(12, "Alexander G. Bell", "Apple Inc", "Quality Assurance", PersonType.BUYER));
-        personList.add(new Person(13, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
+//        personList.add(new Person(13, "Albert J. Einstein", "Clemens Markets", "Vice President", PersonType.BUYER));
         personList.add(new Person(15, "Aiden G. Pierce", "4Chan Inc", "Hacker", PersonType.BUYER));
         personList.add(new Person(16, "Connor Kenway", "Aquila Inc", "Vice President", PersonType.COLLEAGUE));
         personList.add(new Person(19, "Abdul Maajid Zargar", "GraphicWeave", "Senior UI/UX Designer", PersonType.FRIEND));
@@ -100,24 +123,25 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.show();
         switch (v.getTag().toString()) {
             case "ALL":
-                cardsAdapter.setPersons(personList);
+                cardAdapter.updateData(personList);
                 activateCategory("ALL");
                 break;
             case "FRIENDS":
-                cardsAdapter.setPersons(filterPersons(PersonType.FRIEND));
+                cardAdapter.updateData(filterPersons(PersonType.FRIEND));
                 activateCategory("FRIENDS");
                 break;
             case "COLLEAGUES":
-                cardsAdapter.setPersons(filterPersons(PersonType.COLLEAGUE));
+                cardAdapter.updateData(filterPersons(PersonType.COLLEAGUE));
                 activateCategory("COLLEAGUES");
                 break;
             case "BUYERS":
-                cardsAdapter.setPersons(filterPersons(PersonType.BUYER));
+                cardAdapter.updateData(filterPersons(PersonType.BUYER));
                 activateCategory("BUYERS");
                 break;
         }
-        resetAdapter();
-        sortArrow.setRotationX(0);
+        cardStackView.setSelectPosition(-1);
+//        resetAdapter();
+//        sortArrow.setRotationX(0);
         progressDialog.dismiss();
     }
 
@@ -134,10 +158,10 @@ public class MainActivity extends AppCompatActivity {
     public void onSortPersons(View v) {
         progressDialog.show();
         if (sortOrder) {
-            Collections.sort(cardsAdapter.getPersons());
+            Collections.sort(personList);
             sortArrow.setRotationX(0);
         } else {
-            Collections.sort(cardsAdapter.getPersons(), new Comparator<Person>() {
+            Collections.sort(personList, new Comparator<Person>() {
                 @Override
                 public int compare(Person o1, Person o2) {
                     return o2.getName().compareTo(o1.getName());
@@ -146,18 +170,19 @@ public class MainActivity extends AppCompatActivity {
             sortArrow.setRotationX(180f);
         }
         sortOrder = !sortOrder;
-        resetAdapter();
+        cardAdapter.updateData(personList);
+//        resetAdapter();
         progressDialog.dismiss();
     }
 
-    private void resetAdapter() {
-        cards.setShowInitAnimation(false);
-        cards.removeAdapter();
-        cards.setAdapter(cardsAdapter);
-        if (cards.isCardSelected()) {
-            cards.restoreCards();
-        }
-    }
+//    private void resetAdapter() {
+//        cards.setShowInitAnimation(false);
+//        cards.removeAdapter();
+//        cards.setAdapter(cardsAdapter);
+//        if (cards.isCardSelected()) {
+//            cards.restoreCards();
+//        }
+//    }
 
     private void activateCategory(String category) {
         for (Map header: headers) {

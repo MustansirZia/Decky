@@ -298,14 +298,17 @@
                 android:layout_weight=".1"></LinearLayout>
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
+            android:orientation="vertical"
             android:paddingTop="10dp">
 
-            <com.mutualmobile.cardstack.CardStackLayout xmlns:card_stack="http://schemas.android.com/apk/res-auto"
+<!--            <com.mutualmobile.cardstack.CardStackLayout
+                xmlns:card_stack="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/cards"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
@@ -313,13 +316,20 @@
                 card_stack:card_gap="85dp"
                 card_stack:parallax_enabled="true"
                 card_stack:parallax_scale="-6"
-                card_stack:showInitAnimation="true" />
+                card_stack:showInitAnimation="true" />-->
+
+
+            <com.loopeer.cardstack.CardStackView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/stackview_main"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false" />
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/cards"
-                android:layout_alignParentBottom="true"
                 android:background="@color/white"
                 android:elevation="7dp"
                 android:onClick="dummy">
@@ -372,7 +382,7 @@
                     android:layout_weight=".1"></LinearLayout>
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -6,7 +6,8 @@
     android:orientation="vertical"
     app:cardCornerRadius="18dp"
     app:cardElevation="8dp"
-    app:cardPreventCornerOverlap="true">
+    app:cardPreventCornerOverlap="true"
+    app:stackHeaderHeight="130dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,94 +72,108 @@
                 android:src="@drawable/blue_ellipse" />
         </com.google.android.flexbox.FlexboxLayout>
 
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
 
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/companyIcon"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:elevation="4dp"
-                android:src="@color/blue" />
-
-            <in.workarounds.typography.AppCompatTextView
-                android:id="@+id/position"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:font_name="Lato"
-                app:font_variant="Bold" />
-
-            <com.google.android.flexbox.FlexboxLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-10dp">
-
-                <ImageView
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/facebook" />
-
-                <ImageView
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/twitter" />
-
-                <ImageView
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/linkedin" />
-
-                <ImageView
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/googleplus" />
-            </com.google.android.flexbox.FlexboxLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp">
-
-            <EditText
+            <LinearLayout
+                android:id="@+id/inner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/edit_text_bg"
-                android:hint="Temporary Number"
-                android:padding="@dimen/activity_horizontal_margin"
-                android:textColorHint="#888888"
-                android:textSize="14sp" />
+                android:orientation="vertical">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:background="@drawable/edit_text_bg"
-                android:ems="30"
-                android:gravity="top"
-                android:hint="Enter notes here..."
-                android:padding="@dimen/activity_horizontal_margin"
-                android:textColorHint="#888888"
-                android:textSize="14sp" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/companyIcon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:elevation="4dp"
+                        android:src="@color/blue" />
+
+                    <in.workarounds.typography.AppCompatTextView
+                        android:id="@+id/position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:font_name="Lato"
+                        app:font_variant="Bold" />
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp">
+
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/facebook" />
+
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/twitter" />
+
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/linkedin" />
+
+                        <ImageView
+                            android:layout_width="65dp"
+                            android:layout_height="65dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/googleplus" />
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/edit_text_bg"
+                        android:hint="Temporary Number"
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:textColorHint="#888888"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top"
+                        android:background="@drawable/edit_text_bg"
+                        android:ems="30"
+                        android:gravity="top"
+                        android:hint="Enter notes here..."
+                        android:padding="@dimen/activity_horizontal_margin"
+                        android:textColorHint="#888888"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </android.support.v7.widget.CardView>
