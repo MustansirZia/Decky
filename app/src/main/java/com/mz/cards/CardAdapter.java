@@ -1,23 +1,21 @@
 package com.mz.cards;
 
 import android.content.Context;
-import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.LinearInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.loopeer.cardstack.CardStackView;
-
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,20 +35,21 @@ public class CardAdapter extends com.loopeer.cardstack.StackAdapter<Person> {
     }
 
     private void initializeTextAnimations() {
-        mTextExpandAnimation.addAnimation(new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.125f, Animation.ABSOLUTE, 0.0f, Animation.ABSOLUTE, 0.0f));
-        mTextExpandAnimation.addAnimation(new ScaleAnimation(1.0f, 1.12f, 1.0f, 1.12f, ScaleAnimation.RELATIVE_TO_SELF, 0.0f, ScaleAnimation.RELATIVE_TO_SELF, 0.0f));
-        mTextExpandAnimation.setInterpolator(new LinearInterpolator());
+        mTextExpandAnimation.addAnimation(new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.095f, Animation.ABSOLUTE, 0.0f, Animation.ABSOLUTE, 0.0f));
+        ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.12f, 1.0f, 1.12f, ScaleAnimation.RELATIVE_TO_SELF, 0.0f, ScaleAnimation.RELATIVE_TO_SELF, 0.0f);
+        scaleAnimation.setInterpolator(new OvershootInterpolator(4.0f));
+        mTextExpandAnimation.addAnimation(scaleAnimation);
         mTextExpandAnimation.setFillAfter(true);
         mTextExpandAnimation.setDuration(400);
-        mTextCollapseAnimation.addAnimation(new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0.125f, Animation.RELATIVE_TO_PARENT, 0.0f, Animation.ABSOLUTE, 0.0f, Animation.ABSOLUTE, 0.0f));
+        mTextCollapseAnimation.addAnimation(new TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0.095f, Animation.RELATIVE_TO_PARENT, 0.0f, Animation.ABSOLUTE, 0.0f, Animation.ABSOLUTE, 0.0f));
         mTextCollapseAnimation.addAnimation(new ScaleAnimation(1.12f, 1.0f, 1.12f, 1.0f, ScaleAnimation.RELATIVE_TO_SELF, 0.0f, ScaleAnimation.RELATIVE_TO_SELF, 0.0f));
         mTextCollapseAnimation.setFillAfter(true);
         mTextCollapseAnimation.setDuration(300);
-        mTextCollapseAnimation.setInterpolator(new LinearInterpolator());
     }
 
     private void initializeIconAnimations() {
-        mProfileIconExpandAnimation.setDuration(400);
+        mProfileIconExpandAnimation.setDuration(600);
+        mProfileIconExpandAnimation.setInterpolator(new OvershootInterpolator(2.9f));
         mProfileIconExpandAnimation.setFillAfter(true);
         mProfileIconCollapseAnimation.setDuration(300);
         mProfileIconCollapseAnimation.setFillAfter(true);
@@ -82,6 +81,8 @@ public class CardAdapter extends com.loopeer.cardstack.StackAdapter<Person> {
 
     class ColorItemViewHolder extends CardStackView.ViewHolder {
 
+        private View view;
+        public RelativeLayout dragLayout;
         public LinearLayout innerLayout;
         public FlexboxLayout profileIconContainer;
         public CircleImageView profileIcon;
@@ -92,8 +93,56 @@ public class CardAdapter extends com.loopeer.cardstack.StackAdapter<Person> {
         public TextView position;
         private boolean firstTime = true;
 
-        public ColorItemViewHolder(View view) {
+        private View.OnTouchListener dragListener = new View.OnTouchListener() {
+
+            private float startPointY = 0.0f;
+            private float movementY = 0.0f;
+            private float initialYPosi = 0.0f;
+            private float startPointX = 0.0f;
+            private float movementX = 0.0f;
+            private float initialXPosi = 0.0f;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        startPointY = event.getRawY();
+                        startPointX = event.getRawX();
+                        if (initialYPosi == 0.0f) {
+                            initialYPosi = view.getTranslationY();
+                        }
+                        if (initialXPosi == 0.0f) {
+                            initialXPosi = view.getTranslationX();
+                        }
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        movementY = event.getRawY() - startPointY;
+                        movementX = event.getRawX() - startPointX;
+                        view.setTranslationY(initialYPosi + movementY);
+                        view.setTranslationX(initialXPosi + movementX);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        if (movementY > 350) {
+                            view.setTranslationY(initialYPosi);
+                            view.setTranslationX(initialXPosi);
+                            view.performClick();
+                        } else {
+                            view.animate().translationY(initialYPosi).translationX(initialXPosi);
+                        }
+                        startPointY = 0.0f;
+                        movementY = 0.0f;
+                        startPointX = 0.0f;
+                        movementX = 0.0f;
+                        break;
+                }
+                return true;
+            }
+        };
+
+        public ColorItemViewHolder(final View view) {
             super(view);
+            this.view = view;
+            dragLayout = (RelativeLayout) view.findViewById(R.id.dragLayout);
             innerLayout = (LinearLayout) view.findViewById(R.id.inner);
             profileIconContainer = (FlexboxLayout) view.findViewById(R.id.profileIconContainer);
             profileIcon =  (CircleImageView) view.findViewById(R.id.profileIcon);
@@ -102,11 +151,14 @@ public class CardAdapter extends com.loopeer.cardstack.StackAdapter<Person> {
             identifier = (CircleImageView) view.findViewById(R.id.identifier);
             companyIcon = (CircleImageView) view.findViewById(R.id.companyIcon);
             position = (TextView) view.findViewById(R.id.position);
+            dragLayout.setOnTouchListener(dragListener);
+            innerLayout.setOnTouchListener(dragListener);
         }
 
         @Override
         public void onItemExpand(boolean b) {
-            innerLayout.setVisibility(b ? View.VISIBLE : View.GONE);
+//            innerLayout.setVisibility(b ? View.VISIBLE : View.GONE);
+            dragLayout.setVisibility(b ? View.VISIBLE : View.GONE);
             if (b && !firstTime) {
                 colleagueName.startAnimation(mTextExpandAnimation);
                 companyName.startAnimation(mTextExpandAnimation);

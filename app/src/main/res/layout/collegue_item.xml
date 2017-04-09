@@ -8,6 +8,10 @@
     app:cardPreventCornerOverlap="true"
     app:stackHeaderHeight="130dp">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,66 +20,77 @@
         android:padding="@dimen/activity_horizontal_margin">
 
 
-        <com.google.android.flexbox.FlexboxLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80dp">
 
             <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/profileIconContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:alignItems="flex_start"
-                app:justifyContent="center"
-                app:layout_flexBasisPercent="18%">
+                android:layout_width="match_parent"
+                android:layout_height="85dp">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/profileIconContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:alignItems="flex_start"
+                    app:justifyContent="center"
+                    app:layout_flexBasisPercent="18%">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profileIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:src="@color/blue" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/headerContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="22dp"
+                    app:alignItems="flex_start"
+                    app:flexDirection="column"
+                    app:justifyContent="flex_start"
+                    app:layout_flexBasisPercent="80%">
+
+                    <in.workarounds.typography.AppCompatTextView
+                        android:id="@+id/colleagueName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:textColor="#000000"
+                        android:gravity="center"
+                        app:layout_flexBasisPercent="40%"
+                        android:textSize="15sp"
+                        app:font_name="Lato"
+                        app:font_variant="Bold" />
+
+                    <in.workarounds.typography.AppCompatTextView
+                        android:id="@+id/companyName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="top"
+                        app:layout_flexBasisPercent="60%"
+                        android:textColor="@color/textRegularGrey"
+                        android:textSize="12sp"
+                        app:font_name="Lato"
+                        app:font_variant="Regular" />
+                </com.google.android.flexbox.FlexboxLayout>
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profileIcon"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:src="@color/blue" />
+                    android:id="@+id/identifier"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="-40dp"
+                    android:src="@drawable/blue_ellipse" />
             </com.google.android.flexbox.FlexboxLayout>
 
-            <com.google.android.flexbox.FlexboxLayout
-                android:id="@+id/headerContainer"
+            <RelativeLayout
+                android:id="@+id/dragLayout"
+                android:visibility="gone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="22dp"
-                app:alignItems="flex_start"
-                app:flexDirection="column"
-                app:justifyContent="flex_start"
-                app:layout_flexBasisPercent="80%">
-
-                <in.workarounds.typography.AppCompatTextView
-                    android:id="@+id/colleagueName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:textColor="#000000"
-                    android:gravity="center"
-                    app:layout_flexBasisPercent="40%"
-                    android:textSize="15sp"
-                    app:font_name="Lato"
-                    app:font_variant="Bold" />
-
-                <in.workarounds.typography.AppCompatTextView
-                    android:id="@+id/companyName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="top"
-                    app:layout_flexBasisPercent="60%"
-                    android:textColor="@color/textRegularGrey"
-                    android:textSize="12sp"
-                    app:font_name="Lato"
-                    app:font_variant="Regular" />
-            </com.google.android.flexbox.FlexboxLayout>
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/identifier"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginTop="-40dp"
-                android:src="@drawable/blue_ellipse" />
-        </com.google.android.flexbox.FlexboxLayout>
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -181,4 +196,6 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+    </RelativeLayout>
+
 </android.support.v7.widget.CardView>
