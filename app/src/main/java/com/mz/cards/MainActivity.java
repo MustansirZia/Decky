@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView sortArrow;
     private boolean sortOrder = false;
 
-
-    private List<Integer> colors = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

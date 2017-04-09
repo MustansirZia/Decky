@@ -303,7 +303,7 @@
             android:layout_height="0dp"
             android:layout_weight="5"
             android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:layout_marginTop="15dp">
 
 <!--            <com.mutualmobile.cardstack.CardStackLayout
                 xmlns:card_stack="http://schemas.android.com/apk/res-auto"
