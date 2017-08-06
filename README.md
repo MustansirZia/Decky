@@ -32,7 +32,7 @@ git clone https://github.com/MustansirZia/Decky
 * `<= SDK 25` <b> Android 7.1 </b>[NOUGAT](https://developer.android.com/about/versions/nougat/android-7.1.html) (TARGET SDK) <br />
 
 <b>Screen Size.</b>
-* Tested on `Nexus 4 (4.7)" - 768 x 1280` to `Nexus 6P (5.7)" 1440 x 2560`. **Smaller screens sizees may also have no issues.
+* Tested on `Nexus 4 (4.7)" - 768 x 1280` to `Nexus 6P (5.7)" 1440 x 2560`. **Smaller screen sizes may also have no issues.
 
 <br />
 
