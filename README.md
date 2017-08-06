@@ -11,31 +11,31 @@ Styling was done using <b>[Google's flexbox-layout](https://github.com/google/fl
 <br />
 
 ![Deck](https://github.com/MustansirZia/Decky/raw/master/gifs/1.gif)
-![Draggable](https://github.com/MustansirZia/Decky/raw/master/gifs/2.gif) <br />
+![Draggable](https://github.com/MustansirZia/Decky/raw/master/gifs/2.gif)
 
 ## Installation.
-First.
+* First
 ```
 git clone https://github.com/MustansirZia/Decky
 ```
-Second.
+* Second - Open the project inside `Android Studio`.
 
-Open the project inside `Android Studio`.
-
-Third.
-
-Run on the phone. <br />
+* Third - Run on the phone.
 
 
 ## Compatibilty.
-`>= SDK 14` <b> Android 4.0 </b>[ICE_CREAM_SANDWICH](https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#ICE_CREAM_SANDWICH) (MIN SDK)
-<br />`<= SDK 25` <b> Android 7.1 </b>[NOUGAT](https://developer.android.com/about/versions/nougat/android-7.1.html) (TARGET SDK) <br />
+<b>OS.</b>
+* `>= SDK 14` <b> Android 4.0 </b>[ICE_CREAM_SANDWICH](https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#ICE_CREAM_SANDWICH) (MIN SDK)
+* `<= SDK 25` <b> Android 7.1 </b>[NOUGAT](https://developer.android.com/about/versions/nougat/android-7.1.html) (TARGET SDK) <br />
+
+<b>Screen Size.</b>
+* Tested on `Nexus 4 (4.7)" - 768 x 1280` to `Nexus 6P (5.7)" 1440 x 2560`
 
 
 ## Contributors.
-[Abdul Majid](https://github.com/maajidz) (Designed majority of the UI.)
+* [Abdul Majid](https://github.com/maajidz) (Designed majority of the UI.)
 
-[Mustansir Zia](https://github.com/MustansirZia) (Everything else.) <br />
+* [Mustansir Zia](https://github.com/MustansirZia) (Everything else.) <br />
 
 
 
