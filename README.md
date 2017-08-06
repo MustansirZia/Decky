@@ -5,7 +5,7 @@
 
 It has a deck of cards that are fully draggable on the screen, are filterable and can be sorted alphabetically.
 
-Styling was done using <b>[Google's flexbox-layout](https://github.com/google/flexbox-layout). </b>
+Screens are response and the styling was done using <b>[Google's flexbox-layout](https://github.com/google/flexbox-layout). </b>
 <br /> <b>`ENUMS`</b> are used to filter data and animations are vanilla Android. No animation library is used.
 <br /> Custom fonts are added using <b>[Typography](https://github.com/workarounds/typography).
 <br />
