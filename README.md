@@ -16,7 +16,7 @@ Styling was done using <b>[Google's flexbox-layout](https://github.com/google/fl
 <br />
 
 ## Installation.
-* First
+* First -
 ```
 git clone https://github.com/MustansirZia/Decky
 ```
