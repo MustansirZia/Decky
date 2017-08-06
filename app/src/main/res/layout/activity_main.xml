@@ -13,6 +13,8 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -33,6 +35,7 @@
                     android:background="?selectableItemBackgroundBorderless"
                     android:onClick="onSortPersons"
                     android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
                     app:alignItems="center"
                     app:justifyContent="space_between">
 
@@ -87,7 +90,7 @@
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:layout_width="14dp"
                             android:layout_height="14dp"
-                            android:src="@color/yellow"></de.hdodenhof.circleimageview.CircleImageView>
+                            android:src="@color/yellow" />
 
                         <in.workarounds.typography.AppCompatTextView
                             android:layout_width="wrap_content"
@@ -112,6 +115,8 @@
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
+            android:id="@+id/categories"
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".7"
@@ -121,7 +126,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight=".1"></LinearLayout>
+                android:layout_weight=".1" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -298,12 +303,13 @@
                 android:layout_weight=".1"></LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/stackLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp">
+            android:paddingTop="15dp"
+            android:layout_margin="8dp">
 
 <!--            <com.mutualmobile.cardstack.CardStackLayout
                 xmlns:card_stack="http://schemas.android.com/apk/res-auto"
@@ -322,9 +328,8 @@
             <com.loopeer.cardstack.CardStackView xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/stackview_main"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:clipToPadding="false" />
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"/>
 
             <LinearLayout
                 android:visibility="gone"
@@ -382,7 +387,7 @@
                     android:layout_weight=".1"></LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </LinearLayout>
 
