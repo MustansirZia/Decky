@@ -11,7 +11,7 @@ Styling was done using <b>[Google's flexbox-layout](https://github.com/google/fl
 <br />
 
 ![Deck](https://github.com/MustansirZia/Decky/raw/master/gifs/1.gif)
-![Draggable](https://github.com/MustansirZia/Decky/raw/master/gifs/2.gif)
+![Draggable](https://github.com/MustansirZia/Decky/raw/master/gifs/2.gif) <br />
 
 ## Installation.
 First.
@@ -24,16 +24,20 @@ Open the project inside `Android Studio`.
 
 Third.
 
-Run on the phone.
+Run on the phone. <br />
+
 
 ## Compatibilty.
 `>= SDK 14` <b> Android 4.0 </b>[ICE_CREAM_SANDWICH](https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#ICE_CREAM_SANDWICH) (MIN SDK)
-<br />`<= SDK 25` <b> Android 7.1 </b>[NOUGAT](https://developer.android.com/about/versions/nougat/android-7.1.html) (TARGET SDK)
+<br />`<= SDK 25` <b> Android 7.1 </b>[NOUGAT](https://developer.android.com/about/versions/nougat/android-7.1.html) (TARGET SDK) <br />
+
 
 ## Contributors.
 [Abdul Majid](https://github.com/maajidz) (Designed majority of the UI.)
 
-[Mustansir Zia](https://github.com/MustansirZia) (Everything else.)
+[Mustansir Zia](https://github.com/MustansirZia) (Everything else.) <br />
+
+
 
 ## License.
 
