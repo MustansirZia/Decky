@@ -8,11 +8,12 @@ It has a deck of cards that are fully draggable on the screen, are filterable an
 Styling was done using <b>[Google's flexbox-layout](https://github.com/google/flexbox-layout). </b>
 <br /> <b>`ENUMS`</b> are used to filter data and animations are vanilla Android. No animation library is used.
 <br /> Custom fonts are added using <b>[Typography](https://github.com/workarounds/typography).
+<br />
 
 ![Deck](https://github.com/MustansirZia/Decky/raw/master/gifs/1.gif)
 ![Draggable](https://github.com/MustansirZia/Decky/raw/master/gifs/2.gif)
 
-### Installation.
+## Installation.
 First.
 ```
 git clone https://github.com/MustansirZia/Decky
@@ -21,15 +22,19 @@ Second.
 
 Open the project inside `Android Studio`.
 
-### Compatibilty.
+Third.
+
+Run on the phone.
+
+## Compatibilty.
 `>= SDK 14` <b> Android 4.0 </b>[ICE_CREAM_SANDWICH](https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#ICE_CREAM_SANDWICH) (MIN SDK)
 <br />`<= SDK 25` <b> Android 7.1 </b>[NOUGAT](https://developer.android.com/about/versions/nougat/android-7.1.html) (TARGET SDK)
 
-### Contributors.
+## Contributors.
 [Abdul Majid](https://github.com/maajidz) (Designed majority of the UI.)
 
 [Mustansir Zia](https://github.com/MustansirZia) (Everything else.)
 
-### License.
+## License.
 
-See License.
+See [License](https://github.com/MustansirZia/Decky/blob/master/License.txt).
