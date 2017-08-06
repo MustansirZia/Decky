@@ -13,6 +13,8 @@ Styling was done using <b>[Google's flexbox-layout](https://github.com/google/fl
 ![Deck](https://github.com/MustansirZia/Decky/raw/master/gifs/1.gif)
 ![Draggable](https://github.com/MustansirZia/Decky/raw/master/gifs/2.gif)
 
+<br />
+
 ## Installation.
 * First
 ```
@@ -22,6 +24,7 @@ git clone https://github.com/MustansirZia/Decky
 
 * Third - Run on the phone.
 
+<br />
 
 ## Compatibilty.
 <b>OS.</b>
@@ -31,13 +34,14 @@ git clone https://github.com/MustansirZia/Decky
 <b>Screen Size.</b>
 * Tested on `Nexus 4 (4.7)" - 768 x 1280` to `Nexus 6P (5.7)" 1440 x 2560`
 
+<br />
 
 ## Contributors.
 * [Abdul Majid](https://github.com/maajidz) (Designed majority of the UI.)
 
 * [Mustansir Zia](https://github.com/MustansirZia) (Everything else.) <br />
 
-
+<br />
 
 ## License.
 
