@@ -1,4 +1,7 @@
 # Decky.
+
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
 #### Decky is an android application written in Kotlin.
 
 ##### It was built upon [loopeer/CardStackView](https://github.com/loopeer/CardStackView).
